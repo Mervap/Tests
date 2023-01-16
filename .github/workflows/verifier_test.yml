@@ -1,17 +1,22 @@
-name: Verifier
+name: Verifier Test
 on:
   push:
     branches: [ main ]
     paths:
       - 'verifier/**'
   pull_request:
-    branches: [ main ]
     paths:
       - 'verifier/**'
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  Tests:
+  Test:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -34,4 +39,19 @@ jobs:
         run: ./gradlew build -x test
 
       - name: Test
-        run: ./gradlew test
+        run: ./gradlew koverHtmlReport
+
+      - name: Collect Test Artifacts
+        if: failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: test-results
+          path: build/reports/tests
+
+      - name: Deploy Coverage to Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/reports/kover/html
+          destination_dir: ./verifier/coverage
+

@@ -1,7 +1,9 @@
+import kotlinx.kover.api.KoverTaskExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.7.20"
+    id("org.jetbrains.kotlinx.kover") version "0.6.1"
 }
 
 group = "itmo.verifier"
@@ -21,6 +23,9 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    extensions.configure(KoverTaskExtension::class) {
+        isDisabled.set(true)
+    }
 }
 
 tasks.withType<KotlinCompile> {
