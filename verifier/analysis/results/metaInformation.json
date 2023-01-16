@@ -5,14 +5,9 @@
   },
   "attributes": {
     "vcs": {
-      "sarifIdea": {
-        "repositoryUri": "https://github.com/Mervap/Tests",
-        "revisionId": "7d0a68d88bc62e4879141ad01660a3be22b921a7",
-        "branch": "main"
-      }
+      "sarifIdea": {}
     },
-    "deviceId": "200820300000000-c350-13a5-37d1-457b18bc89a0",
-    "jobUrl": "https://github.com/Mervap/Tests/actions/runs/3933022848",
-    "repoUrl": "https://github.com/Mervap/Tests"
+    "deviceId": "200820300000000-0000-0000-0000-000000000000",
+    "jobUrl": "https://github.com/Mervap/Tests/actions/runs/3933053973"
   }
 }
