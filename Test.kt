@@ -1,9 +1,19 @@
-fun foo() {}
+fun foo() {
+  10 + 20
+}
 
-fun bar() {}
+fun bar() {
+  30 + 40
+}
 
-fun foo() {}
+fun foo() {
+  50 + 60
+}
 
-fun baz() {}
+fun baz() {
+  70 + 80
+}
 
-fun foo() {}
+fun foo() {
+  println("Hello")
+}
